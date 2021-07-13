@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="PROJECT" libraries="{ResizeSensor, all, animation, card, custom, default-skin, email-decode, feather, footer, global_js, hideShowPassword, ion.rangeSlider, jquery-ui, jquery.countdown, jquery.elevateZoom-3.0.8, jquery.magnific-popup, jquery.raty, jquery.validate, magnific-popup, owl.carousel, owl.theme.default, pe-icon-7-stroke, photoswipe, photoswipe-ui-default, popper, rocket-loader, slick, slick-theme, style, sweetalert2, sweetalert2.all, theia-sticky-sidebar, themify-icons}" />
+  </component>
+</project>
