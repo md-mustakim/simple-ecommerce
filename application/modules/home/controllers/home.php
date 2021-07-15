@@ -14,17 +14,24 @@ class home extends MY_Controller{
     {
         $productList = $this->db->get('product')->result();
 
-        $newProductList = array();
-        foreach ($productList as $item)
-        {
-            $itemArray = (array)$item;
-            $itemArray['slug'] = $this->slugify($item->name);
-            $makeObjectItem = (array)$itemArray;
-            array_push($newProductList,$makeObjectItem);
-        }
-
         $viewPath = "home/electronicsForHomePage";
-        $this->web->web->index($viewPath, (object)$newProductList);
+
+        if(count($productList) === 0){
+            $this->web->web->index($viewPath, $productList);
+        }else{
+            $newProductList = array();
+            foreach ($productList as $item)
+            {
+                $itemArray = (array)$item;
+                $itemArray['slug'] = $this->slugify($item->name);
+                $makeObjectItem = (array)$itemArray;
+                array_push($newProductList,$makeObjectItem);
+            }
+
+            $viewPath = "home/electronicsForHomePage";
+            $this->web->web->index($viewPath, (object)$newProductList);
+        }
+        
     }
 
 
@@ -32,10 +39,16 @@ class home extends MY_Controller{
     {
         $result = $this->db->where(['id' => $id])->get('product')->row();
 
-        $viewPath = "home/showProduct";
-        $jsPath = "assets\js\custom.js";
-        $this->web->web->index($viewPath, ['product' => $result]);
-
+            if($result === null)
+            {                        
+                $viewPath = "home/notFound";
+                $jsPath = "assets\js\custom.js";
+                $this->web->web->index($viewPath, ['product' => '']);
+            }else{                
+                $viewPath = "home/showProduct";
+                $jsPath = "assets\js\custom.js";
+                $this->web->web->index($viewPath, ['product' => $result]);
+            }
 
     }
 

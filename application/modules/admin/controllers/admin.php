@@ -14,4 +14,5 @@ class admin extends MX_Controller{
             'jsPath' => 'assets\js\custom.js'
         ]);
     }
+    
 }

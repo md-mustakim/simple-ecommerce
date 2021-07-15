@@ -51,6 +51,9 @@ $(function (){
     showDataList();
 
     let $addForm = $("#addProductForm");
+    $addForm.rules("add", {
+        accept: "jpg|jpeg|png|ico|bmp"
+    });
     $addForm.validate({
         rules: {
             category: {
@@ -93,10 +96,11 @@ $(function (){
                         $addForm.trigger("reset");
                         showDataList();
                     }else {
+                        console.log(response)
                         Swal.fire(
                             'Product Added Failed',
-                            '',
-                            'danger'
+                            response.message.error,
+                            'error'
                         );
                     }
                 }
@@ -253,16 +257,21 @@ $(function (){
     $("#checkoutForm").validate({
         rules: {
             name: {
-                required: true
+                required: true,
+                minlength: 3,
             },
             email: {
                 required: true,
+                email: true
             },
             phone:{
                 required: true,
+                minlength: 10,
+                maxlength: 15
             },
             password: {
-                required: true
+                required: true,
+                minlength: 6
             }
 
         },

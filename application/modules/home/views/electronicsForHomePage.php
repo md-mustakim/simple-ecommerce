@@ -51,13 +51,12 @@
         <div class="row">
         <?php
 
-        if (count((array)$data) == 0){ ?>
+        if (count((array)$data) === 0){ ?>
 
             <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-3">
-                <div class="deals-item-inner deals-item-all bg-white overflow-hidden border position-absolute top-0 left-0 right-0 bottom-0 d-flex align-items-center text-center">
+                <div class="">
                     <div>
-                        <h3 class="fs-18 mb-3">No Items Available</h3>
-                        <a href="https://isshue.bdtask.com/isshue_v4_demo1/category/p/Electronics/XMK67BYX89D8GRQ" class="btn btn-primary btn-sm text-white font-weight-500">View All<i data-feather="arrow-right"></i></a>
+                        <h1 class="fs-18 mb-3">No Items Available</h1>                        
                     </div>
                 </div>
             </div>
